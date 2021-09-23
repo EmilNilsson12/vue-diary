@@ -1,7 +1,13 @@
 <template>
 	<div id="app">
 		<img alt="Vue logo" src="./assets/logo.png" />
-		<DiaryForm @add="addDiaryEntry" />
+		<div>
+			<label for="">
+				Hide
+				<input type="checkbox" v-model="hideForm" />
+			</label>
+		</div>
+		<DiaryForm v-show="!hideForm" @add="addDiaryEntry" />
 	</div>
 </template>
 
@@ -12,6 +18,7 @@ export default {
 	name: 'App',
 	components: {
 		DiaryForm,
+		// ToggleShowForm,
 	},
 	methods: {
 		addDiaryEntry(diaryObject) {
@@ -24,6 +31,7 @@ export default {
 	data() {
 		return {
 			diaryEntries: [],
+			hideForm: true,
 		};
 	},
 };
