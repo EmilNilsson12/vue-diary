@@ -2,9 +2,9 @@
 	<div id="app">
 		<img alt="Vue logo" src="./assets/logo.png" />
 		<div>
-			<label for="">
-				Hide
-				<input type="checkbox" v-model="hideForm" />
+			<label for="toggleForm">
+				Hide form
+				<input type="checkbox" id="toggleForm" v-model="hideForm" />
 			</label>
 		</div>
 		<DiaryForm v-show="!hideForm" @add="addDiaryEntry" />

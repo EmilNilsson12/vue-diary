@@ -36,7 +36,7 @@
 					/>
 				</label>
 			</p>
-			<p><button type="submit">XOXO Gossip Girl (submit)</button></p>
+			<p><button type="submit">Done!</button></p>
 		</form>
 		<Preview :title="diaryTitle" :body="diaryBody" :date="diaryDate" />
 	</div>
