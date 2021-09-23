@@ -15,6 +15,7 @@
 
 <script>
 export default {
+	name: 'Preview',
 	props: {
 		title: String,
 		body: String,
