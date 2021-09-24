@@ -1,15 +1,12 @@
 <template>
-	<div>
-		This is the Preview
+	<div class="diary-entry-format">
 		<h2>
 			{{ title }}
+			<span>{{ date }}</span>
 		</h2>
 		<p>
 			{{ body }}
 		</p>
-		<h4>
-			{{ date }}
-		</h4>
 	</div>
 </template>
 
@@ -24,4 +21,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.diary-entry-format {
+	text-align: left;
+}
+.diary-entry-format p {
+	margin-left: 30px;
+}
+.diary-entry-format h2 span {
+	font-size: 11px;
+}
+</style>

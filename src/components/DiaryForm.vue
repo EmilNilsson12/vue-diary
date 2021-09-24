@@ -38,7 +38,11 @@
 			</p>
 			<p><button type="submit">Done!</button></p>
 		</form>
-		<Preview :title="diaryTitle" :body="diaryBody" :date="diaryDate" />
+		<Preview
+			:title="diaryTitle || 'My story'"
+			:body="diaryBody || 'It all started when...'"
+			:date="diaryDate"
+		/>
 	</div>
 </template>
 
@@ -65,13 +69,17 @@ export default {
 				diaryBody: this.diaryBody,
 				diaryDate: this.diaryDate,
 			});
+
+			this.diaryTitle = '';
+			this.diaryBody = '';
+			this.diaryDate = new Date().toISOString().split('T')[0];
 		},
 	},
 	data() {
 		return {
 			diaryTitle: '',
 			diaryBody: '',
-			diaryDate: '',
+			diaryDate: new Date().toISOString().split('T')[0],
 		};
 	},
 };
