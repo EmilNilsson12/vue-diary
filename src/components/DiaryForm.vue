@@ -59,10 +59,7 @@ export default {
 		Preview,
 	},
 	methods: {
-		handleSubmit(evt) {
-			console.log('Submitted!');
-			console.log(evt.target);
-
+		handleSubmit() {
 			this.$emit('add', {
 				diaryId: uuidv4(),
 				diaryTitle: this.diaryTitle,
@@ -70,6 +67,7 @@ export default {
 				diaryDate: this.diaryDate,
 			});
 
+			// Reset input fields
 			this.diaryTitle = '';
 			this.diaryBody = '';
 			this.diaryDate = new Date().toISOString().split('T')[0];
@@ -85,7 +83,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
 	margin: 40px 0 0;

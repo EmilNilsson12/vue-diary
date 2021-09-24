@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+		<h1>Vue Diary App</h1>
 		<img alt="Vue logo" src="./assets/logo.png" />
 		<div>
 			<label for="toggleForm">
@@ -24,16 +25,16 @@ export default {
 	},
 	methods: {
 		addDiaryEntry(diaryObject) {
-			console.log('diaryObject: ', diaryObject);
 			this.diaryEntriesArr.unshift(diaryObject);
 			this.diaryEntriesArr = [...this.diaryEntriesArr].sort(
 				this.compareByDates
 			);
-			console.log('diaryEntries: ', this.diaryEntriesArr);
+			localStorage.setItem(
+				'diaryEntries',
+				JSON.stringify(this.diaryEntriesArr)
+			);
 		},
 		compareByDates(a, b) {
-			console.log('a: ', a);
-			console.log('b: ', b);
 			const aDate = new Date(a.diaryDate);
 			const bDate = new Date(b.diaryDate);
 
@@ -50,11 +51,19 @@ export default {
 	data() {
 		return {
 			diaryEntriesArr: [],
-			buttonValueHistory: [],
 			hideForm: true,
 			buttonValue: 0,
 		};
 	},
+	/* eslint-disable no-mixed-spaces-and-tabs */
+	mounted() {
+		localStorage.getItem('diaryEntries')
+			? (this.diaryEntriesArr = [
+					...JSON.parse(localStorage.getItem('diaryEntries')),
+			  ])
+			: localStorage.setItem('diaryEntries', JSON.stringify([]));
+	},
+	/* eslint-disable no-mixed-spaces-and-tabs */
 };
 </script>
 
